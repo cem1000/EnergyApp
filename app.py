@@ -58,6 +58,8 @@ def load_data():
     # renaming to df
     df = df.rename(columns={'data_type': 'utility_type'})
     
+    df['scope_description'] = df['scope_description'].astype(str)
+    
     # fixing month here. 
     df['month'] = pd.to_datetime(df['month']).dt.to_period('M')
     df = df[df['month'] < "2024-01"]
