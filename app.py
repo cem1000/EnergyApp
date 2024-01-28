@@ -255,11 +255,12 @@ st.text("""            """)
 
 css_metrics = """
 <style>
-div[data-testid="metric-container"] div[data-testid="stMetricValue"] > div {
+div[data-testid='metric-container'] div[data-testid='stMetricValue'] > div {
    font-size: 180% !important;
 }
 </style>
 """
+
 
 # Inject custom CSS with Markdown
 st.markdown(css_metrics, unsafe_allow_html=True)
