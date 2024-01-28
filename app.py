@@ -364,7 +364,7 @@ else:
         df_filtered_grouped['kgco2e_per_kwh'].fillna(0, inplace=True)  # Fill NaN values with 0 again at end to avoid issues with calc
 
     # Pivot using the correct metric_column +   Using metric to widen the format
-    wide_format_data = df_filtered_grouped.pivot(index='month', columns=dimension_column, values=(metric_column).sort_index()
+    wide_format_data = df_filtered_grouped.pivot(index='month', columns=dimension_column, values=metric_column).sort_index()
 
     
     
