@@ -226,10 +226,10 @@ st.text("""            """)
 st.text("""            """) 
 
 # creating comparisons
-start_date_ty = df_filtered['month'].min().strftime('%Y-%m')
-end_date_ty = df_filtered['month'].max().strftime('%Y-%m')
-start_date_ly = df_filtered_ly['month'].min().strftime('%Y-%m')
-end_date_ly = df_filtered_ly['month'].max().strftime('%Y-%m')
+start_date_ty = df_filtered['month'].min().strftime('%m-%Y')
+end_date_ty = df_filtered['month'].max().strftime('%m-%Y')
+start_date_ly = df_filtered_ly['month'].min().strftime('%m-%Y')
+end_date_ly = df_filtered_ly['month'].max().strftime('%m-%Y')
 comparison_string = f"(Comparison Period from: {start_date_ly} - {end_date_ly} to {start_date_ty} - {end_date_ty})"
 
 
