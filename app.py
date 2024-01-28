@@ -254,12 +254,11 @@ else:
     start_date_ly = df_filtered_ly['month'].min().strftime('%m-%Y')
     end_date_ly = df_filtered_ly['month'].max().strftime('%m-%Y')
     comparison_string = f"(Comparison Period from: {start_date_ly} - {end_date_ly} to {start_date_ty} - {end_date_ty})"
+    # Main section for Key KPI Cards
+    st.header('Key Performance Metrics - ' + str(selected_date_range))
 
-# Main section for Key KPI Cards
-st.header('Key Performance Metrics - ' + str(selected_date_range))
-
-# Using Markdown to customize the font size of the subheader
-st.markdown(f'<h3 style="font-size: 16px; font-style: italic;">{comparison_string}</h3>', unsafe_allow_html=True)
+    # Using Markdown to customize the font size of the subheader
+    st.markdown(f'<h3 style="font-size: 16px; font-style: italic;">{comparison_string}</h3>', unsafe_allow_html=True)
 
 
 
