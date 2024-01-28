@@ -277,7 +277,7 @@ renewable_share = ((df_filtered[df_filtered['renewable_flag'] == "Renewable Sour
 total_kwh_ly = df_filtered_ly['kwh'].sum() 
 total_kgco2e_ly = df_filtered_ly['kgco2e'].sum() 
 kgCO2e_per_kWh_ly = (df_filtered_ly['kgco2e'].sum() / df_filtered_ly['kwh'].sum())
-renewable_share_ly = ((df_filtered_ly[df_filtered_ly['renewable_flag'] == "Renewable Source"]['kgco2e'].sum()) / (total_kwh_ly) *100)
+renewable_share_ly = ((df_filtered_ly[df_filtered_ly['renewable_flag'] == "Renewable Source"]['kgco2e'].sum()) / (total_kgco2e_ly) *100)
 
 
 # Display KPIs using st.metric
