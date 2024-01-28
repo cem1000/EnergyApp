@@ -165,7 +165,26 @@ st.set_page_config(page_title='QuantumGrid', layout="wide")
 st.title('QuantumGrid - Energy Usage Tracker')
 
 # Sidebar for filters
+st.sidebar.markdown(
+    """
+    ### How to Use This App
+    Adjust the filters above to customize the data and metrics displayed on the dashboard. 
+    Select different date ranges, utilities, and emission scopes to explore QuantumGrid's energy usage and CO2 emissions data. 
+
+    ### Understanding the Metrics
+    - **Total Energy Consumed (kWh)**: The sum of all energy consumed within the selected filters and date range.
+    - **Total Emissions (KgCO2)**: The total CO2 emissions calculated for the selected filters and date range.
+    - **Emissions Intensity (KgCO2e per kWh)**: This metric represents the average emissions per unit of energy consumed. It is calculated as the total emissions divided by the total energy consumed.
+    - **Renewable Emissions Share in KgCO2e (%)**: This represents the percentage of total emissions that come from renewable energy sources.
+
+    ### Year-over-Year (YoY) Calculation
+    The Year-over-Year change indicates how the selected metrics have changed from the same period in the previous year. 
+    For example, if 'Last 12 Months' is selected, the app compares the most recent 12-month data with the data from the preceding 12 months.
+    """
+)
 st.sidebar.header('Filters')
+st.sidebar.markdown('Use the **selection boxes** below to customize the data and metrics displayed on the dashboard.')
+
 date_options = ['Last 1 Month', 'Last 3 Months', 'Last 6 Months', 'Last 12 Months', 'All Time']
 selected_date_range = st.sidebar.selectbox('Select Date Range', date_options, index=date_options.index('Last 12 Months'))
 
