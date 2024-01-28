@@ -257,6 +257,7 @@ css_metrics = """
 <style>
 div[data-testid="metric-container"] div[data-testid="stMetricValue"] > div {
    font-size: 180% !important;
+}
 </style>
 """
 
