@@ -33,9 +33,8 @@ def load_data():
     df['renewable_flag'] = df['renewable'].apply(set_renewable_flag)
 
     # making sure end_date correct format
-    df['end_date'] = pd.to_datetime(df['end_date'], dayfirst=True).dt.strftime('%Y-%m')
+    df['month'] = pd.to_datetime(df['end_date'], dayfirst=True).dt.strftime('%Y-%m')
 
-    df['month'] = pd.to_datetime(df['end_date']).dt.strftime('%Y-%m')  # Ensure month is a string 'YYYY-MM'
 
     # Ensuring subset cols
     cleaned_data = df[['month', 'division', 'scope_description', 'renewable_flag', 'data_type', 'utility', 'scope_text', 'kwh', 'kgco2e']]
