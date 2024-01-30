@@ -63,9 +63,6 @@ def load_data():
     df = df[df['month'] < "2024-01"]
     return df
 
-
-
-
 def filter_data_date(df, selection):
     df['month'] = pd.to_datetime(df['month'].astype(str))
     
@@ -123,16 +120,8 @@ def calculate_yoy(current, previous):
     else:
         return "na" 
 
-
-
 # initilizing param
 selected_date_range = 'All Time'
-
-
-
-
-
-
 
 # Ensuring data is not already assigned to a session state
 if 'data' not in st.session_state:
@@ -158,8 +147,6 @@ df_ly_filtered = st.session_state['filtered_ly_data']
 
 # setting page configs
 st.set_page_config(page_title='QuantumGrid', layout="wide")
-
-
 
 # Title of the dashboard
 st.title('QuantumGrid - Energy Usage Tracker')
@@ -255,12 +242,10 @@ else:
     end_date_ly = df_filtered_ly['month'].max().strftime('%m-%Y')
     comparison_string = f"(Comparison Period from: {start_date_ly} - {end_date_ly} to {start_date_ty} - {end_date_ty})"
     # Main section for Key KPI Cards
-    st.header('Key Performance Metrics - ' + str(selected_date_range))
+    st.header('Key Performance Metrics - ' + selected_date_range)
 
     # Using Markdown to customize the font size of the subheader
     st.markdown(f'<h3 style="font-size: 16px; font-style: italic;">{comparison_string}</h3>', unsafe_allow_html=True)
-
-
 
 ## Creating some empty spaces... prob other ways to do it
 
@@ -269,9 +254,6 @@ st.text("""            """)
 st.text("""            """) 
 
 st.text("""            """) 
-
-
-
 
 css_metrics = """
 <style>
@@ -282,8 +264,6 @@ div[data-testid="metric-container"] div[data-testid="stMetricValue"] > div {
 
 # Inject custom CSS with Markdown
 st.markdown(css_metrics, unsafe_allow_html=True)
-
-
 
 
 # Calculate the KPIs
@@ -344,15 +324,12 @@ st.text("""            """)
 
 st.text("""            """) 
 
-
 # Dashboard section now 
 st.subheader("Dashboard",divider ='gray')
 
 #inserting radio button to flick between chart types.. 
 chart_type = st.radio('Select Chart Type', ['Bar Chart','Line Chart'])
 st.subheader(chart_type)
-
-
 
 # Metric handling in the bar chart
 if selected_dimension == 'No Dimension':
@@ -386,8 +363,6 @@ else:
     # Pivot using the correct metric_column +   Using metric to widen the format
     wide_format_data = df_filtered_grouped.pivot(index='month', columns=dimension_column, values=metric_column).sort_index()
 
-    
-    
 
 # Create a bar chart or line chart based on the selected type (bar or line chart selection)
 if chart_type == 'Line Chart':
@@ -397,7 +372,7 @@ else:
     st.bar_chart(wide_format_data)
     
 # Getting current date for naming
-current_date = datetime.now().strftime("%Y%m%d")
+current_date = datetime.now().strftime("%Y-%m-%d")
 
 # Concatenate the date with the string for file naming
 file_name = f"data_{current_date}.csv"
