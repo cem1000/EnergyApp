@@ -59,7 +59,7 @@ def load_data():
     df['scope_description'] = df['scope_description'].astype(str)
     
     # fixing month here. 
-    df['month'] = pd.to_datetime(df['month']).dt.to_period('M')
+    # df['month'] = pd.to_datetime(df['month']).dt.to_period('M')
     df = df[df['month'] < "2024-01"]
     return df
 
